@@ -13,6 +13,7 @@
       <!-- 汉堡按钮 -->
       <li
         class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white"
+        @click="onShowPopup"
       >
         <m-svg-icon class="w-1.5 h-1.5" name="hamburger"></m-svg-icon>
       </li>
@@ -29,6 +30,9 @@
         {{ item.name }}
       </li>
     </ul>
+    <m-popup v-model="isVisiable">
+      <div>我是内容</div>
+    </m-popup>
   </div>
 </template>
 
@@ -83,6 +87,12 @@ watch(currentCategoryIndex, (val) => {
 // item 点击事件
 const onItemClick = (index) => {
   currentCategoryIndex.value = index
+}
+
+// 控制 popup 展示
+const isVisiable = ref(false)
+const onShowPopup = () => {
+  isVisiable.value = true
 }
 </script>
 
