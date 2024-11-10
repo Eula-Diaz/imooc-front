@@ -1,4 +1,4 @@
-import { ALL_CATEGORY_ITEM } from '@/constants/index.js'
+import { ALL_CATEGORY_ITEM, CATEGORY_NOMAR_DATA } from '@/constants/index.js'
 import { getCategory } from '@/api/category.js'
 /**
  * 处理 navigationBar 中的数据 categorys
@@ -8,7 +8,7 @@ export default {
   // 独立作用域
   namespaced: true,
   state: () => ({
-    categorys: [ALL_CATEGORY_ITEM]
+    categorys: CATEGORY_NOMAR_DATA
   }),
   mutations: {
     /**
