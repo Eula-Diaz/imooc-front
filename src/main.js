@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import { useREM } from './utils/flexible'
 import mLibs from './libs'
 import './styles/index.scss'
@@ -10,7 +11,4 @@ import 'virtual:svg-icons-register'
 useREM()
 const app = createApp(App)
 
-app
-.use(router)
-.use(mLibs)
-.mount('#app')
+app.use(router).use(store).use(mLibs).mount('#app')
