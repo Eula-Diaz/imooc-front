@@ -3,6 +3,9 @@ const props = defineProps({
   data: {
     type: Object,
     required: true
+  },
+  width: {
+    type: Number
   }
 })
 </script>
@@ -11,7 +14,13 @@ const props = defineProps({
   <div class="bg-white dark:bg-zinc-900 xl:dark:bg-zinc-800 rounded pb-1">
     <div class="relative w-full rounded cursor-zoom-in group">
       <!--图片-->
-      <img :src="data.photo" class="w-full rounded bg-transparent" />
+      <img
+        :src="data.photo"
+        class="w-full rounded bg-transparent"
+        :style="{
+          height: (width / data.photoWidth) * data.photoHeight + 'px'
+        }"
+      />
       <!--遮罩层-->
       <div
         class="hidden opacity-0 w-full h-full bg-zinc-900/50 absolute top-0 left-0 rounded duration-300 group-hover:opacity-100 xl:block"

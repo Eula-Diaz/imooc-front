@@ -251,9 +251,13 @@ const reset = () => {
 watch(
   () => props.column,
   () => {
-    columnWidth.value = 0
-    // 数据改变之后，视图改变之后的回调
-    reset()
+    if (props.picturePreReading) {
+      columnWidth.value = 0
+      // 数据改变之后，视图改变之后的回调
+      reset()
+    } else {
+      reset()
+    }
   }
 )
 </script>
