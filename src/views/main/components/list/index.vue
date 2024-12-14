@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { getPexelsList } from '@/api/pexels.js'
 import itemVue from './item.vue'
+import { isMobileTerminal } from '@/utils/flexible'
 
 /**
  * 构建数据请求
@@ -22,7 +23,12 @@ getPexelsData(query)
 
 <template>
   <div>
-    <m-waterfall :data="pexelsList" :nodeKey="'id'" :column="5">
+    <m-waterfall
+      class="px-1 w-full"
+      :data="pexelsList"
+      :nodeKey="'id'"
+      :column="isMobileTerminal ? 2 : 5"
+    >
       <template v-slot="{ item, width }">
         <item-vue :data="item"></item-vue>
       </template>

@@ -230,6 +230,32 @@ watch(
     immediate: true
   }
 )
+
+/**
+ * 重新构建瀑布流
+ */
+const reset = () => {
+  setTimeout(() => {
+    // 重新计算列宽
+    useColumnWidth()
+    // 重制所有定位数据
+    props.data.forEach((item) => {
+      item._style = null
+    })
+  }, 100)
+}
+
+/**
+ * 监听列数的变化
+ */
+watch(
+  () => props.column,
+  () => {
+    columnWidth.value = 0
+    // 数据改变之后，视图改变之后的回调
+    reset()
+  }
+)
 </script>
 
 <template>
